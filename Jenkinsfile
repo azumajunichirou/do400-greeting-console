@@ -1,3 +1,12 @@
+stage('Release') {
+    steps {
+        sh '''
+        oc project klbngc-greetings
+        oc start-build greeting-console --follow --wait
+        '''
+    }
+}
+
 pipeline{
     agent{
         label "nodejs"
